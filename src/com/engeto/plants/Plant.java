@@ -64,9 +64,9 @@ public class Plant {
     }
 
     public void setWatering(LocalDate watering) throws PlantException  {
-       // if(watering.compareTo(LocalDate.of(watering)<planted)) {
-       //     throw new PlantException("poslední zálivky — nesmí být starší než datum zasazení rostliny"+watering);
-       // }
+        if(watering.isBefore(planted)) {
+            throw new PlantException("poslední zálivky — nesmí být starší než datum zasazení rostliny"+watering);
+        }
         this.watering = watering;
     }
 
@@ -75,9 +75,9 @@ public class Plant {
     }
 
     public void setFrequancyOfWatering(int frequancyOfWatering) throws PlantException {
-     //   if(frequancyOfWatering.compareto(int.ZERO)<0) {
-        //    throw new PlantException("Spatna frekvence zalivky"+frequancyOfWatering);
-      //  }
+        if(frequancyOfWatering<=0) {
+            throw new PlantException("Spatna frekvence zalivky"+frequancyOfWatering);
+        }
         this.frequancyOfWatering = frequancyOfWatering;
     }
 

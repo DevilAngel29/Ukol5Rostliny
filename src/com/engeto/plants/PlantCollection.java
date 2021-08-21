@@ -3,6 +3,7 @@ package com.engeto.plants;
 import javax.net.ssl.SNIHostName;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,7 @@ public class PlantCollection extends Throwable {
         return plant;
     }
     public void exportTofile(String filename) throws PlantException {
-        try (PrintWriter writer = new PrintWriter(String.valueOf(new FileInputStream(filename)))) {
+        try (PrintWriter writer = new PrintWriter(new FileOutputStream(filename))) {
            for (Plant plant : list) {
                writer.println(plant.getName()+ DELIMETER +plant.getNote()+DELIMETER+plant.getFrequancyOfWatering()
                +DELIMETER+plant.getWatering()+DELIMETER+plant.getPlanted());
