@@ -11,7 +11,20 @@ import java.util.Scanner;
 
 public class PlantCollection extends Throwable {
     public static final String DELIMETER = ";";
-    private List<Plant> list = new ArrayList<>();
+    ArrayList<Plant> plants = new ArrayList<>();
+
+    public void addPlant(Plant plant) {
+        plants.add(plant);
+    }
+    public Plant getPlant(int index) {
+        return plants.get(index);
+    }
+    public void removePlant(int index) {
+        plants.remove(index);
+    }
+    public int size() {
+        return plants.size();
+    }
 
     public PlantCollection(String s) {
 
@@ -39,7 +52,7 @@ public class PlantCollection extends Throwable {
     }
     public void exportTofile(String filename) throws PlantException {
         try (PrintWriter writer = new PrintWriter(new FileOutputStream(filename))) {
-           for (Plant plant : list) {
+           for (Plant plant : plants) {
                writer.println(plant.getName()+ DELIMETER +plant.getNote()+DELIMETER+plant.getFrequancyOfWatering()
                +DELIMETER+plant.getWatering()+DELIMETER+plant.getPlanted());
            }
@@ -48,5 +61,9 @@ public class PlantCollection extends Throwable {
             throw new PlantException("Soubor" + filename + " nenalezen: " + e.getLocalizedMessage());
 
         }
+    }
+
+    public void exportToFile(String filename) {
+
     }
 }

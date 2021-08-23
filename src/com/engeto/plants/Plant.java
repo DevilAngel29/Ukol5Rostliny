@@ -35,6 +35,16 @@ public class Plant {
 
     }
 
+    public Plant(String note) {
+        this.note = note;
+    }
+
+    public Plant(String name, int frequancyOfWatering, LocalDate planted) {
+        this.name = name;
+        this.frequancyOfWatering = frequancyOfWatering;
+        this.planted = planted;
+    }
+
     public String getName() {
         return name;
     }

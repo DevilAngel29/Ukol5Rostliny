@@ -7,20 +7,18 @@ public class Main {
     public static final String FILENAME = "kvetiny.txt";
 
     public static void main(String[] args) {
-        PlantCollection plants = new PlantCollection();
+        PlantCollection list = new PlantCollection();
         try {
-            PlantCollection plant = PlantCollection.importFromTextFile(FILENAME);
+            list.importFromTextFile(FILENAME);
         } catch (PlantException e) {
             System.err.println(e.getLocalizedMessage());
         }
 
-        Plant bazalka = new Plant("V kuchyni", LocalDate.now(),LocalDate.now(),3);
-        bazalka.add(plants);
-        try {
-            plants.exportTofile(FILENAME);
-        } catch (PlantException e) {
-            e.printStackTrace();
-        }
+        list.addPlant(new Plant("Amarylis v obýváku"));
+        list.addPlant(new Plant("Bazalka v kuchyni", 3, LocalDate.now()));
+       // list.removePlant(1);
+        list.exportToFile(FILENAME);
+
 
     }
 
