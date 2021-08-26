@@ -50,7 +50,7 @@ public class PlantCollection extends Throwable {
         }
         return plant;
     }
-    public void exportTofile(String filename) throws PlantException {
+    public void exportToFile(String filename) throws PlantException {
         try (PrintWriter writer = new PrintWriter(new FileOutputStream(filename))) {
            for (Plant plant : plants) {
                writer.println(plant.getName()+ DELIMETER +plant.getNote()+DELIMETER+plant.getFrequancyOfWatering()
@@ -63,7 +63,5 @@ public class PlantCollection extends Throwable {
         }
     }
 
-    public void exportToFile(String filename) {
 
-    }
 }

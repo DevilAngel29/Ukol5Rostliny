@@ -16,8 +16,12 @@ public class Main {
 
         list.addPlant(new Plant("Amarylis v obýváku"));
         list.addPlant(new Plant("Bazalka v kuchyni", 3, LocalDate.now()));
-       // list.removePlant(1);
-        list.exportToFile(FILENAME);
+        //list.removePlant(1);
+        try {
+            list.exportToFile(FILENAME);
+        } catch (PlantException e) {
+            System.err.println(e.getLocalizedMessage());
+        }
 
 
     }
